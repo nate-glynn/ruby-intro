@@ -27,6 +27,15 @@ bitcoin = gets.chomp
 
 # 2. The value will be a string, so you'll want to convert it to a Float.
 bitcoin = bitcoin.to_f
+puts bitcoin
 
 # 3. inspect the bitcoin_data hash
-# puts bitcoin_data
+# Extract the Bitcoin price in USD
+bitcoin_price = bitcoin_data["bpi"]["USD"]["rate"].gsub(",", "").to_f
+
+# Display the value of 1 Bitcoin in USD
+puts "1 Bitcoin is valued at $#{bitcoin_price} USD."
+
+# Calculate and display the user's Bitcoin worth
+user_bitcoin_value = bitcoin * bitcoin_price
+puts "Your Bitcoin is worth $#{user_bitcoin_value}."
